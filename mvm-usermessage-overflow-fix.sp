@@ -25,17 +25,13 @@ public void OnPluginStart()
 {
 	ID_MVMLocalPlayerUpgradesClear = GetUserMessageId("MVMLocalPlayerUpgradesClear");
 	if (ID_MVMLocalPlayerUpgradesClear == INVALID_MESSAGE_ID) {
-		// TODO:
-		// print error
-		// don't load
+		SetFailState("Can't get UserMessage ID for MVMLocalPlayerUpgradesClear");
 	}
 //	PrintToServer("MVMLocalPlayerUpgradesClear = %d", ID_MVMLocalPlayerUpgradesClear);
 	
 	ID_MVMLocalPlayerUpgradesValue = GetUserMessageId("MVMLocalPlayerUpgradesValue");
 	if (ID_MVMLocalPlayerUpgradesValue == INVALID_MESSAGE_ID) {
-		// TODO:
-		// print error
-		// don't load
+		SetFailState("Can't get UserMessage ID for MVMLocalPlayerUpgradesValue");
 	}
 //	PrintToServer("MVMLocalPlayerUpgradesValue = %d", ID_MVMLocalPlayerUpgradesValue);
 	
