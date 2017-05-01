@@ -3,10 +3,10 @@
 
 
 public Plugin myinfo = {
-	name        = "precache",
+	name        = "precacher",
 	author      = "sigsegv",
 	description = "Precacher",
-	version     = "20170430-1",
+	version     = "20170430-2",
 	url         = "https://github.com/sigsegv-mvm/sm-plugins",
 };
 
@@ -21,8 +21,9 @@ public Action CC_PrecacheModel(int client, int args)
 	char path[PLATFORM_MAX_PATH];
 	GetCmdArg(1, path, sizeof(path));
 	
-	if (PrecacheModel(path, false) != 0) {
-		ReplyToCommand(client, "PrecacheModel(\"%s\", false): success", path);
+	int idx = PrecacheModel(path, false);
+	if (idx != 0) {
+		ReplyToCommand(client, "PrecacheModel(\"%s\", false): success [idx: %d]", path, idx);
 		return Plugin_Handled;
 	} else {
 		ReplyToCommand(client, "PrecacheModel(\"%s\", false): failure", path);
@@ -40,8 +41,9 @@ public Action CC_PreloadModel(int client, int args)
 	char path[PLATFORM_MAX_PATH];
 	GetCmdArg(1, path, sizeof(path));
 	
-	if (PrecacheModel(path, true) != 0) {
-		ReplyToCommand(client, "PrecacheModel(\"%s\", true): success", path);
+	int idx = PrecacheModel(path, true);
+	if (idx != 0) {
+		ReplyToCommand(client, "PrecacheModel(\"%s\", true): success [idx: %d]", path, idx);
 		return Plugin_Handled;
 	} else {
 		ReplyToCommand(client, "PrecacheModel(\"%s\", true): failure", path);
